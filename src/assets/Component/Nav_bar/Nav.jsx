@@ -30,6 +30,10 @@ const Nav = () => {
   const handleHistory = () => {
     setHistory(!history);
   };
+  const [ShowAll, setShowAll] = useState(false);
+  const handleShowAll = () => {
+    setShowAll((prev) => !prev);
+  };
   return (
     <div>
       <div className="container pt-5">
@@ -57,19 +61,72 @@ const Nav = () => {
               </span>
               {history && (
                 <div>
-                  <div className="absolute w-[800px] h-[500px] shadow bg-white_color top-[80px] left-[350px] border rounded-xl">
-                     <div className="flex items-center">
-                      
-                      <input 
-                      className="p-4 font-josefin text-black_color w-[725px] relative"
-                      placeholder="Search..."
-                      type="text" />
+                  <div className="absolute w-[800px] h-[500px] shadow z-50 top-[80px] left-[350px] border rounded-xl bg-whaite_f8f7f6">
+                    <div className="flex items-center">
+                      <input
+                        className="p-4 font-josefin text-black_color w-[725px] relative"
+                        placeholder="Search..."
+                        type="text"
+                      />
 
-                      <FiSearch  className="text-[25px] absolute right-5" />
-                     </div>
-                       <div className="w-full h-[1px] bg-gray-100 shadow"></div>
+                      <FiSearch className="text-[25px] absolute right-5 cursor-pointer" />
+                    </div>
+                    <div className="w-full h-[1.5px] bg-gray-300 shadow"></div>
+                    <div className="flex items-center justify-between p-4">
+                      <p className="text-gray_color font-josefin">Actions</p>
+                      <div>
+                        <span>
+                          <button
+                            onClick={handleShowAll}
+                            className="transition-all text-gray_color font-josefin hover:text-black_color"
+                          >
+                            {ShowAll ? "Show Less" : "Show All"}
+                          </button>
+                        </span>
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className="pl-4 overflow-y-auto max-h-[300px] flex flex-col">
+                        {/* Scrollable List */}
+                        <div className="flex-grow">
+                          <div className="pb-2">
+                            <div className="flex items-center gap-3 w-[98%] py-3 bg-gray-300 rounded-lg pl-3 transition-all duration-200">
+                              <FiUser />
+                              <p> Sign in</p>
+                            </div>
+                          </div>
+                          {ShowAll &&
+                            [...Array(10)].map((_, index) => (
+                              <div key={index} className="pb-2">
+                                <div className="flex items-center gap-3 w-[98%] py-3 hover:bg-gray-300 rounded-lg pl-3 transition-all duration-200">
+                                  <FiUser />
+                                  <p> Sign in</p>
+                                </div>
+                              </div>
+                            ))}
+                        </div>
+
+                        {/* History Label */}
+                        <div className="mt-3">
+                          <p className="text-gray_color font-josefin">
+                            History
+                          </p>
+                        </div>
+
+                        {/* Sign in to see History Button */}
+                        <div
+                        onClick={handleSignIn}
+                        className="flex justify-center mt-10">
+                          <button className="p-2 text-sm border text-gray_color rounded-2xl hover:bg-gray-200 font-josefin">
+                            Sign in to see your History
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="fixed bottom-[210px] w-[52%] h-[1px] bg-gray-300 shadow "></div>
                   </div>
-                
                 </div>
               )}
             </div>

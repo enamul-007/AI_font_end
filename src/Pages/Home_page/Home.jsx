@@ -1,10 +1,12 @@
 import React from "react";
 import Nav from "../../assets/Component/Nav_bar/Nav";
+import Massge from "./Massge_part/Massge";
 
 const Home = () => {
   return (
-    <div >
+    <div>
       <Nav />
+      <Massge />
     </div>
   );
 };
