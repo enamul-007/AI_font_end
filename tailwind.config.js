@@ -11,7 +11,9 @@ export default {
         whaite_f8f7f6: "var(--whaite_f8f7f6)",
       },
 
-      fontFamily: {},
+      fontFamily: {
+        josefin: ["Josefin Sans", "sans-serif"],
+      },
     },
     container: {
       center: true,
