@@ -10,8 +10,18 @@ const Massge = () => {
   const [newMassage, setNewMassage] = useState("");
   const sentMassage = () => {
     if (!newMassage.trim()) return;
-    setMassage([...massage, { text: newMassage, isSender: true }]);
+
+    // Add user message
+    setMassage((message) => [...message, { text: newMassage, isSender: true }]);
     setNewMassage("");
+
+    // After 2 seconds, add bot reply
+    setTimeout(() => {
+      setMassage((message) => [
+        ...message,
+        { text: "Hey KIvabe tomake help korte pari bolo! 😎✌️", isSender: false },
+      ]);
+    }, 1000);
   };
 
   return (
@@ -19,7 +29,7 @@ const Massge = () => {
       <div className="container z-0">
         <div className="">
           <div className="  relative flex top-0 left-[350px] h-[650px]  w-[675px]">
-           <div className="flex-1 p-4 space-y-1 overflow-y-auto ">
+            <div className="flex-1 p-4 space-y-1 overflow-y-auto h-[530px]">
               {massage.map((_, index) => (
                 <SentMassage
                   key={index}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Logo from "../../images/grok-logo.png";
 import { LuTextSearch } from "react-icons/lu";
 import { CiSettings } from "react-icons/ci";
@@ -34,6 +34,15 @@ const Nav = () => {
   const handleShowAll = () => {
     setShowAll((prev) => !prev);
   };
+  const SettingRrf = useRef(null);
+  const handleClicksettingOutside =(event) =>{
+    if ( SettingRrf.current && !SettingRrf.current.contains(event.target) ) {
+      setSetting(false)
+    }
+  }
+  useEffect(() => {
+    document.addEventListener("mousedown" ,handleClicksettingOutside)
+  })
   return (
     <div>
       <div className="container pt-5">
@@ -116,8 +125,9 @@ const Nav = () => {
 
                         {/* Sign in to see History Button */}
                         <div
-                        onClick={handleSignIn}
-                        className="flex justify-center mt-10">
+                          onClick={handleSignIn}
+                          className="flex justify-center mt-10"
+                        >
                           <button className="p-2 text-sm border text-gray_color rounded-2xl hover:bg-gray-200 font-josefin">
                             Sign in to see your History
                           </button>
@@ -143,7 +153,7 @@ const Nav = () => {
               </span>
               {setting && (
                 <div>
-                  <div className="absolute w-[165px] h-[100px] shadow-sm bg-white_color top-[62px] right-[300px] border rounded-xl">
+                  <div className="absolute w-[165px] h-[100px] shadow-sm bg-white_color top-[62px] right-[300px] border rounded-xl z-40">
                     <div className="flex items-center justify-between gap-4 px-1 pt-2">
                       <button className="flex items-center px-3 py-4 transition-all rounded-lg hover:bg-gray-200">
                         <MdOutlineWbSunny />
