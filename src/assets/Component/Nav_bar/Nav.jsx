@@ -35,14 +35,17 @@ const Nav = () => {
     setShowAll((prev) => !prev);
   };
   const SettingRrf = useRef(null);
-  const handleClicksettingOutside =(event) =>{
-    if ( SettingRrf.current && !SettingRrf.current.contains(event.target) ) {
-      setSetting(false)
+  const handleClicksettingOutside = (event) => {
+    if (SettingRrf.current && !SettingRrf.current.contains(event.target)) {
+      setSetting(false);
     }
-  }
+  };
   useEffect(() => {
-    document.addEventListener("mousedown" ,handleClicksettingOutside)
-  })
+    document.addEventListener("mousedown", handleClicksettingOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClicksettingOutside);
+    };
+  }, []);
   return (
     <div>
       <div className="container pt-5">
@@ -142,7 +145,7 @@ const Nav = () => {
             </div>
 
             {/* Settings Icon */}
-            <div>
+            <div ref={SettingRrf}>
               <span>
                 <button
                   onClick={handleSetting}
