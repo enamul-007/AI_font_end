@@ -46,6 +46,18 @@ const Nav = () => {
       document.removeEventListener("mousedown", handleClicksettingOutside);
     };
   }, []);
+  const historyRef = useRef(null);
+  const handleHistoryOutside = (outside) => {
+    if (historyRef.current && !historyRef.current.contains(outside.target)) {
+      setHistory(false);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener("mousedown", handleHistoryOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleHistoryOutside);
+    };
+  }, []);
   return (
     <div>
       <div className="container pt-5">
@@ -62,7 +74,9 @@ const Nav = () => {
           {/* Action Buttons */}
           <div className="flex items-center gap-2">
             {/* Search Icon */}
-            <div>
+            <div 
+            ref={historyRef}
+            >
               <span>
                 <button
                   onClick={handleHistory}
@@ -73,7 +87,7 @@ const Nav = () => {
               </span>
               {history && (
                 <div>
-                  <div className="absolute w-[800px] h-[500px] shadow z-50 top-[80px] left-[350px] border rounded-xl bg-whaite_f8f7f6">
+                  <div className="absolute w-[800px] h-[500px]  z-50 top-[80px] left-[350px] border rounded-xl bg-[#ffffff] shadow-lg">
                     <div className="flex items-center">
                       <input
                         className="p-4 font-josefin text-black_color w-[725px] relative"
@@ -83,7 +97,7 @@ const Nav = () => {
 
                       <FiSearch className="text-[25px] absolute right-5 cursor-pointer" />
                     </div>
-                    <div className="w-full h-[1.5px] bg-gray-300 shadow"></div>
+                    <div className="w-full h-[0.5px] bg-gray-300"></div>
                     <div className="flex items-center justify-between p-4">
                       <p className="text-gray_color font-josefin">Actions</p>
                       <div>
@@ -138,7 +152,7 @@ const Nav = () => {
                       </div>
                     </div>
 
-                    <div className="fixed bottom-[210px] w-[52%] h-[1px] bg-gray-300 shadow "></div>
+                    <div className="fixed bottom-[205px] w-[52%] h-[0.5px] bg-gray-300 shadow-2xl "></div>
                   </div>
                 </div>
               )}
