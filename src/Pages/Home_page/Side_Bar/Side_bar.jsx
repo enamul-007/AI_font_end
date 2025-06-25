@@ -15,17 +15,17 @@ const Side_bar = () => {
     <div>
       <div className="container">
         <div className="relative flex">
-          <div className=" w-[250px] border rounded-xl shadow-lg  absolute h-[650px] top-5 ">
+          <div className=" w-[250px] border rounded-xl shadow-lg  absolute h-[650px] top-5 dark:border-gray-500 dark:bg- ">
             <div className="relative flex items-center pt-2 pl-1">
               <input
-                className="border w-[97%] rounded-3xl pl-2 py-[6px] pr-10 "
+                className="border w-[97%] rounded-3xl pl-2 py-[6px] pr-10 dark:bg-black dark:border-gray-500 "
                 type="text"
               />
               <FiSearch className="text-[22px] absolute right-6 cursor-pointer" />
             </div>
             {/* === chat == */}
             <div className="pt-2 pl-1 ">
-              <div className="w-[97%] rounded-3xl  flex items-center gap-5 py-2 pr-10 hover:bg-gray-300 ">
+              <div className="w-[97%] rounded-3xl  flex items-center gap-5 py-2 pr-10 hover:bg-gray-300 dark:hover:bg-gray-500 ">
                 <div className="pl-2">
                   <RiChatAiLine className="text-[22px]   cursor-pointer" />
                 </div>
@@ -35,7 +35,7 @@ const Side_bar = () => {
             {/* === chat == */}
             {/* === Workspaces == */}
             <div className="pt-2 pl-1 ">
-              <div className="w-[97%] rounded-3xl  flex items-center gap-4 py-2 pr-10 hover:bg-gray-300 ">
+              <div className="w-[97%] rounded-3xl  flex items-center gap-4 py-2 pr-10 hover:bg-gray-300  dark:hover:bg-gray-500 ">
                 <div className="pl-2">
                   <PiCubeThin className="text-[22px]   cursor-pointer" />
                 </div>

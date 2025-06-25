@@ -12,12 +12,12 @@ const Sign_in = () => {
   };
   return (
     <div
-      className="flex items-center justify-center min-h-screen px-4 bg-gray-50"
+      className="flex items-center justify-center min-h-screen px-4 bg-gray-50 dark:bg-black"
       style={{ fontFamily: "Josefin Sans, sans-serif" }}
     >
       <div className="w-full max-w-md">
         {/* Title */}
-        <h1 className="mb-12 text-3xl font-semibold text-center text-gray-900">
+        <h1 className="mb-12 text-3xl font-semibold text-center text-gray-900 dark:">
           Log into your account
         </h1>
 

@@ -39,10 +39,10 @@ const Massge = () => {
               ))}
             </div>
             <div className="absolute bottom-0 w-full">
-              <div className=" relative h-[115px] border-bg-gray_color border-[2px] shadow-md rounded-xl ">
+              <div className=" relative h-[115px] dark:border-gray-500 border-[2px] shadow-md rounded-xl  ">
                 <div className="pt-4 pl-3">
                   <input
-                    className="w-[99%] font-josefin text-black_color text-lg"
+                    className="w-[99%] font-josefin text-black_color text-lg dark:bg-black"
                     placeholder="What do you want to know?"
                     type="text"
                     value={newMassage}
