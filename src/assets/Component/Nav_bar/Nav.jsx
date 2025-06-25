@@ -101,10 +101,7 @@ const Nav = () => {
               </span>
               {history && (
                 <div className="absolute z-50 bg-slate-50 dark:text-white">
-                  <div
-                    className="absolute w-[90vw] sm:w-[500px] md:w-[600px] lg:w-[700px] xl:w-[800px] h-[500px] xl:top-0 xl:left-[-400px]
-                  transform -translate-x-1/2 border rounded-xl shadow-lg dark:border-gray-500  bg-slate-50 dark:bg-gray-950"
-                  >
+                  <div className="absolute w-[90vw] sm:w-[500px] md:w-[600px] lg:w-[700px] xl:w-[800px] h-[500px] xl:top-0 xl:left-[-400px] lg:left-[-250px] md:left-[-100px] transform -translate-x-1/2 border rounded-xl shadow-lg dark:border-gray-500  bg-slate-50 dark:bg-gray-950 xs:left-[-35px]">
                     <div className="flex items-center">
                       <input
                         className="w-full p-4 font-josefin text-black_color dark:bg-gray-800 dark:text-white"
@@ -172,8 +169,6 @@ const Nav = () => {
               )}
             </div>
 
-        
-
             {/* Settings Icon */}
             <div ref={SettingRrf}>
               <span>
@@ -186,7 +181,7 @@ const Nav = () => {
               </span>
               {setting && (
                 <div>
-                  <div className="absolute w-[165px] h-[100px] shadow-sm bg-slate-50 top-[62px] right-4 sm:right-[300px] border rounded-xl z-40 dark:bg-gray-800">
+                  <div className="absolute w-[165px] h-[100px] shadow-sm bg-slate-50 top-[62px] right-4 sm:right-[300px] border rounded-xl z-40 dark:bg-gray-800 lg:right-[250px] md:right-[225px] xl:right-[250px]">
                     <div className="flex items-center justify-between gap-4 px-1 pt-2">
                       <button
                         onClick={EnableLightMode}
