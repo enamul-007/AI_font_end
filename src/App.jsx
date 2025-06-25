@@ -30,8 +30,8 @@ const App = () => {
     }
   }, []);
   return (
-    <div className="min-h-screen text-black bg-white dark:bg-black dark:text-white">
-      <RouterProvider router={router} />;
+    <div className="text-black bg-white dark:bg-black dark:text-white">
+      <RouterProvider router={router} />
     </div>
   );
 };

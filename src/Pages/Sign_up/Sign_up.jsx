@@ -26,8 +26,10 @@ const Sign_up = () => {
           <div className="space-y-4">
             {/* Login with X */}
             <button className="flex items-center justify-center w-full px-6 py-4 space-x-3 text-white transition-colors bg-black rounded-full dark:bg-white hover:bg-gray-800 ">
-              <FaXTwitter className="text-[23px]  dark:text-black" />
-              <span className="font-medium dark:text-black">Login with X</span>
+              <FaXTwitter className="text-[23px]  dark:text-gray-700" />
+              <span className="font-medium dark:text-gray-700">
+                Login with X
+              </span>
             </button>
 
             {/* Login with Email */}

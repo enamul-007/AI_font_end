@@ -7,7 +7,7 @@ import { FaXTwitter } from "react-icons/fa6";
 
 const Sign_in = () => {
   const sign_up = useNavigate();
-  const hnadleSign_up = () => {
+  const handleSign_up = () => {
     sign_up("/Sign_up");
   };
   return (
@@ -17,16 +17,16 @@ const Sign_in = () => {
     >
       <div className="w-full max-w-md">
         {/* Title */}
-        <h1 className="mb-12 text-3xl font-semibold text-center text-gray-900 dark:">
+        <h1 className="mb-12 text-3xl font-semibold text-center text-gray-900 dark:text-white">
           Log into your account
         </h1>
 
         {/* Login Buttons */}
         <div className="space-y-4">
           {/* Login with X */}
-          <button className="flex items-center justify-center w-full px-6 py-4 space-x-3 text-white transition-colors bg-black rounded-full hover:bg-gray-800">
-            <FaXTwitter  className="text-[23px]"/>
-            <span className="font-medium">Login with X</span>
+          <button className="flex items-center justify-center w-full px-6 py-4 space-x-3 text-white transition-colors bg-black border-2 rounded-full hover:bg-gray-800 dark:bg-white dark:hover:border-orange-300 ">
+            <FaXTwitter className="text-[23px] dark:text-gray-700" />
+            <span className="font-medium dark:text-gray-700">Login with X</span>
           </button>
 
           {/* Login with Email */}
@@ -42,7 +42,7 @@ const Sign_in = () => {
           </button>
 
           {/* Login with Apple */}
-          <button className="flex items-center justify-center w-full px-6 py-4 space-x-3 text-gray-700 transition-colors bg-white border-2 rounded-full gray-300 border- hover:border-orange-300">
+          <button className="flex items-center justify-center w-full px-6 py-4 space-x-3 text-gray-700 transition-colors bg-white border-2 border-gray-300 rounded-full hover:border-orange-300">
             <IoLogoApple className="text-[30px] text-black_color" />
             <span className="font-medium">Login with Apple</span>
           </button>
@@ -50,16 +50,18 @@ const Sign_in = () => {
 
         {/* Last logged in info */}
         <div className="flex items-center justify-center mt-6 text-sm text-gray-500">
-          <div className="w-2 h-2 mr-2 bg-orange-400 rounded-full"></div>
-          <span>You last logged in with Google</span>
+          <div className="w-2 h-2 mr-2 bg-orange-400 rounded-full dark:bg-green-300"></div>
+          <span className=" dark:text-white">
+            You last logged in with Google
+          </span>
         </div>
 
         {/* Sign up link */}
-        <div className="mt-8 text-center text-gray-600">
+        <div className="pl-3 mt-8 text-center text-gray-600 dark:text-white">
           <span>Don't have an account? </span>
           <button
-            onClick={hnadleSign_up}
-            className="font-medium text-gray-900 hover:underline"
+            onClick={handleSign_up}
+            className="font-medium text-gray-900 hover:underline dark:text-gray-50"
           >
             Sign up
           </button>
