@@ -19,10 +19,10 @@ const History_hover = () => {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onClick={() => setIsClicked(!isClicked)}
-        className="flex items-center gap-4 transition py-2  rounded-3xl w-[230px]  hover:bg-gray-300  dark:hover:bg-gray-500 pl-[10px]"
+        className="flex items-center gap-4 transition xl:py-2  xl:rounded-3xl w-[230px]  xl:hover:bg-gray-300  xl:dark:hover:bg-gray-500 xl:pl-[10px]"
       >
         {getIcon()}
-        <p className="font-medium font-josefin">History</p>
+        <p className="font-medium font-josefin xs:pl-5 xl:pl-0">History</p>
       </button>
     </div>
   );

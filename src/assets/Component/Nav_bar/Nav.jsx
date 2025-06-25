@@ -70,8 +70,8 @@ const Nav = () => {
   };
 
   return (
-    <div>
-      <div className="container pt-5">
+    <div className="sticky top-0 z-50 bg-white dark:bg-black">
+      <div className="container px-4 pt-4 mx-auto sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div onClick={HandleHomepage} className="w-10 h-10 cursor-pointer">
@@ -83,32 +83,34 @@ const Nav = () => {
             <img
               src={Logo2}
               alt={Logo2}
-              className="object-contain w-full h-full dark:block"
+              className="hidden object-contain w-full h-full dark:block"
             />
           </div>
 
           {/* Action Buttons */}
           <div className="flex items-center gap-2">
-            {/* Search Icon */}
-            <div ref={historyRef}>
+            {/* Search Icon - Hidden on mobile */}
+            <div ref={historyRef} className=" xs:block sm:block xl:block">
               <span>
                 <button
                   onClick={handleHistory}
-                  className="w-10 h-10 flex items-center justify-center text-[22px] hover:border rounded-full hover:border-gray_color hover:bg-gray-200"
+                  className="flex items-center justify-center w-10 h-10 text-[22px] rounded-full hover:border hover:border-gray_color hover:bg-gray-200 dark:hover:bg-gray-700"
                 >
                   <LuTextSearch />
                 </button>
               </span>
               {history && (
-                <div className=" bg-slate-50 dark:text-white">
-                  <div className=" bg-slate-50 absolute w-[800px] h-[500px]  z-50 top-[80px] left-[350px] border rounded-xl shadow-lg dark:border-gray-500  dark:bg-gray-900">
+                <div className="absolute z-50 bg-slate-50 dark:text-white">
+                  <div
+                    className="absolute w-[90vw] sm:w-[500px] md:w-[600px] lg:w-[700px] xl:w-[800px] h-[500px] xl:top-0 xl:left-[-400px]
+                  transform -translate-x-1/2 border rounded-xl shadow-lg dark:border-gray-500  bg-slate-50 dark:bg-gray-950"
+                  >
                     <div className="flex items-center">
                       <input
-                        className="p-4 font-josefin text-black_color w-[725px] relative dark:bg-black"
+                        className="w-full p-4 font-josefin text-black_color dark:bg-gray-800 dark:text-white"
                         placeholder="Search..."
                         type="text"
                       />
-
                       <FiSearch className="text-[25px] absolute right-5 cursor-pointer" />
                     </div>
                     <div className="w-full h-[0.5px] bg-gray-300 dark:bg-gray-500"></div>
@@ -118,7 +120,7 @@ const Nav = () => {
                         <span>
                           <button
                             onClick={handleShowAll}
-                            className="transition-all text-gray_color font-josefin hover:text-black_color"
+                            className="transition-all text-gray_color font-josefin hover:text-black_color dark:hover:text-white"
                           >
                             {ShowAll ? "Show Less" : "Show All"}
                           </button>
@@ -131,7 +133,7 @@ const Nav = () => {
                         {/* Scrollable List */}
                         <div className="flex-grow">
                           <div className="pb-2">
-                            <div className="flex items-center gap-3 w-[98%] py-3 bg-gray-300 rounded-lg pl-3 transition-all duration-200 dark:bg-gray-500">
+                            <div className="flex items-center gap-3 w-[98%] py-3 bg-gray-300 rounded-lg pl-3 transition-all duration-200 dark:bg-gray-700">
                               <FiUser />
                               <p> Sign in</p>
                             </div>
@@ -139,7 +141,7 @@ const Nav = () => {
                           {ShowAll &&
                             [...Array(10)].map((_, index) => (
                               <div key={index} className="pb-2">
-                                <div className="flex items-center gap-3 w-[98%] py-3 hover:bg-gray-300 dark:hover:bg-gray-500 rounded-lg pl-3 transition-all duration-200">
+                                <div className="flex items-center gap-3 w-[98%] py-3 hover:bg-gray-300 dark:hover:bg-gray-700 rounded-lg pl-3 transition-all duration-200">
                                   <FiUser />
                                   <p> Sign in</p>
                                 </div>
@@ -159,51 +161,51 @@ const Nav = () => {
                           onClick={handleSignIn}
                           className="flex justify-center mt-10"
                         >
-                          <button className="p-2 text-sm border text-gray_color rounded-2xl hover:bg-gray-200 font-josefin dark:hover:bg-gray-500">
+                          <button className="p-2 text-sm border text-gray_color rounded-2xl hover:bg-gray-200 font-josefin dark:hover:bg-gray-700">
                             Sign in to see your History
                           </button>
                         </div>
                       </div>
                     </div>
-
-                    <div className="fixed bottom-[205px] w-[52%] h-[0.5px] bg-gray-300 shadow-2xl dark:bg-gray-500 "></div>
                   </div>
                 </div>
               )}
             </div>
+
+        
 
             {/* Settings Icon */}
             <div ref={SettingRrf}>
               <span>
                 <button
                   onClick={handleSetting}
-                  className=" relative w-10 h-10 flex items-center justify-center text-[22px] hover:border rounded-full hover:border-gray_color hover:bg-gray-200"
+                  className="relative flex items-center justify-center w-10 h-10 text-[22px] rounded-full hover:border hover:border-gray_color hover:bg-gray-200 dark:hover:bg-gray-700"
                 >
                   <CiSettings />
                 </button>
               </span>
               {setting && (
                 <div>
-                  <div className="absolute w-[165px] h-[100px] shadow-sm bg-slate-50 top-[62px] right-[300px] border rounded-xl z-40 dark:bg-gray-900 ">
+                  <div className="absolute w-[165px] h-[100px] shadow-sm bg-slate-50 top-[62px] right-4 sm:right-[300px] border rounded-xl z-40 dark:bg-gray-800">
                     <div className="flex items-center justify-between gap-4 px-1 pt-2">
                       <button
                         onClick={EnableLightMode}
-                        className="flex items-center px-3 py-4 transition-all rounded-lg hover:bg-gray-200"
+                        className="flex items-center px-3 py-4 transition-all rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700"
                       >
                         <MdOutlineWbSunny />
                       </button>
                       <button
                         onClick={EnableDarkMode}
-                        className="flex items-center px-3 py-4 transition-all rounded-lg hover:bg-gray-200"
+                        className="flex items-center px-3 py-4 transition-all rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700"
                       >
                         <LuMoonStar />
                       </button>
-                      <button className="flex items-center px-3 py-4 transition-all rounded-lg hover:bg-gray-200 text-[21px]">
+                      <button className="flex items-center px-3 py-4 transition-all rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 text-[21px]">
                         <PiDevicesLight />
                       </button>
                     </div>
                     <div className="w-full px-1 ">
-                      <button className="w-full py-2 pb-1 pl-2 transition-all rounded-lg text-start hover:bg-gray-200 font-josefin">
+                      <button className="w-full py-2 pb-1 pl-2 transition-all rounded-lg text-start hover:bg-gray-200 dark:hover:bg-gray-700 font-josefin">
                         language
                       </button>
                     </div>
@@ -212,19 +214,19 @@ const Nav = () => {
               )}
             </div>
 
-            {/* Sign Up Button */}
+            {/* Sign Up Button - Text hidden on mobile */}
             <button
               onClick={handleSignup}
-              className="flex items-center gap-2 px-4 py-1 text-sm font-medium transition-all duration-500 border-2 rounded-3xl hover:bg-black_color hover:text-white_color text-black_color "
+              className="flex items-center gap-2 px-2 py-1 text-sm font-medium transition-all duration-500 border-2 sm:px-4 rounded-3xl hover:bg-black_color hover:text-white_color text-black_color dark:text-white dark:border-gray-600 dark:hover:bg-gray-700"
             >
               <FiUser />
-              <span className="font-josefin">Sign up</span>
+              <span className="hidden sm:inline font-josefin">Sign up</span>
             </button>
 
-            {/* Sign In Button */}
+            {/* Sign In Button - Hidden on mobile */}
             <button
               onClick={handleSignIn}
-              className="px-4 py-1 text-sm font-medium transition-all duration-500 border-2 rounded-3xl hover:bg-black_color hover:text-white_color text-black_color font-josefin"
+              className="hidden px-4 py-1 text-sm font-medium transition-all duration-500 border-2 rounded-3xl hover:bg-black_color hover:text-white_color text-black_color font-josefin sm:block dark:text-white dark:border-gray-600 dark:hover:bg-gray-700"
             >
               Sign in
             </button>

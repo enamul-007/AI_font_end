@@ -19,7 +19,10 @@ const Massge = () => {
     setTimeout(() => {
       setMassage((message) => [
         ...message,
-        { text: "Hey KIvabe tomake help korte pari bolo! 😎✌️", isSender: false },
+        {
+          text: "Hey KIvabe tomake help korte pari bolo! 😎✌️",
+          isSender: false,
+        },
       ]);
     }, 1000);
   };
@@ -28,8 +31,8 @@ const Massge = () => {
     <div>
       <div className="container z-0">
         <div className="">
-          <div className="  relative flex top-0 left-[350px] h-[650px]  w-[675px]">
-            <div className="flex-1 p-4 space-y-1 overflow-y-auto h-[530px]">
+          <div className="  relative flex top-0 xl:left-[350px] xl:h-[650px] lg:h-[600px]  lg:left-[140px]  xl:w-[675px] xs:h-[700px] xs:left-5 lg:w-[600px] md:h-[850px] md:left-10 md:w-[600px] ">
+            <div className="flex-1 p-4 space-y-1 overflow-y-auto h-[540px] ">
               {massage.map((_, index) => (
                 <SentMassage
                   key={index}
@@ -38,9 +41,9 @@ const Massge = () => {
                 />
               ))}
             </div>
-            <div className="absolute bottom-0 w-full">
-              <div className=" relative h-[115px] dark:border-gray-500 border-[2px] shadow-md rounded-xl  ">
-                <div className="pt-4 pl-3">
+            <div className="absolute bottom-0 xl:w-full xs:left-2">
+              <div className=" relative xl:h-[115px] dark:border-gray-500 border-[2px] shadow-md rounded-xl  xs:h-[80px] xs:w-[320px] xl:w-full lg:h-[115px] lg:w-[600px] md:h-[115px] md:w-[600px] ">
+                <div className="pl-3 xl:pt-4 xs:pt-2 ">
                   <input
                     className="w-[99%] font-josefin text-black_color text-lg dark:bg-black"
                     placeholder="What do you want to know?"
@@ -53,28 +56,31 @@ const Massge = () => {
                   <div className="absolute bottom-[6px]">
                     <div className="flex items-center">
                       <div className="flex items-center gap-2">
-                        <div className="flex p-2 transition-all border border-gray-400 rounded-full hover:bg-gray-300">
-                          <label htmlFor="fileUp" className="text-[25px]">
+                        <div className="flex p-2 transition-all border border-gray-400 rounded-full hover:bg-gray-300 xs:p-1 lg:p-3 md:p-3">
+                          <label
+                            htmlFor="fileUp"
+                            className="xl:text-[25px] xs:text-[15px]"
+                          >
                             <AiOutlinePaperClip />
                           </label>
-                          <input className="hidden" id="fileUp" type="file" />
+                          <input className="hidden " id="fileUp" type="file" />
                         </div>
                         <div>
-                          <button className="flex items-center gap-2 px-3 py-2 transition-all border border-gray-400 rounded-3xl hover:bg-gray-300">
+                          <button className="flex items-center gap-2 px-3 py-2 transition-all border border-gray-400 rounded-3xl hover:bg-gray-300 xs:py-0 xl:py-2 lg:p-2 md:p-2">
                             <PiSpiralFill /> Deepsearch
                           </button>
                         </div>
                         <div>
-                          <button className="flex items-center gap-2 px-3 py-2 transition-all border border-gray-400 rounded-3xl hover:bg-gray-300">
+                          <button className="flex items-center gap-2 px-3 transition-all border border-gray-400 xl:py-2 rounded-3xl hover:bg-gray-300 xs:py-0 lg:p-2 md:p-2">
                             <FcIdea /> Think
                           </button>
                         </div>
                       </div>
                       <div>
-                        <div className="pl-[320px]">
+                        <div className="xl:pl-[320px] xs:pl-2 md:pl-[270px] lg:pl-[270px] ">
                           <button
                             onClick={sentMassage}
-                            className="flex items-center gap-2 p-3 transition-all border border-gray-400 rounded-full hover:bg-gray-300"
+                            className="flex items-center gap-2 transition-all border border-gray-400 rounded-full xl:p-3 hover:bg-gray-300 xs:p-1 lg:p-3 md:p-3"
                           >
                             <FaArrowUp />
                           </button>
